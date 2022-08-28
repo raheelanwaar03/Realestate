@@ -29,7 +29,7 @@
                     <div class="col-lg-8 col-md-8">
                         <ul class="top-info text-center text-md-left">
                             <li><i class="fas fa-map-marker-alt"></i>
-                                <p class="info-text">9051 Constra Incorporate, USA</p>
+                                <p class="info-text">{{ env('APP_ADDRESS') }}</p>
                             </li>
                         </ul>
                     </div>
@@ -42,8 +42,8 @@
                     <div class="logo-area">
                         <div class="row align-items-center">
                             <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
-                                <a class="d-block" href="index.html">
-                                    <img loading="lazy" src="{{ asset('assets/images/logo.png') }}" alt="Constra">
+                                <a class="d-block" href="{{ route('landingPage') }}">
+                                    <img loading="lazy" src="{{ asset('assets/images/logo.png') }}" height="200px" width="200px" alt="{{ env('APP_NAME') }}">
                                 </a>
                             </div>
                             <div class="col-lg-9 header-right">
@@ -52,7 +52,7 @@
                                         <div class="info-box">
                                             <div class="info-box-content">
                                                 <p class="info-box-title">Call Us</p>
-                                                <p class="info-box-subtitle">(+9) 847-291-4353</p>
+                                                <p class="info-box-subtitle">+999999999</p>
                                             </div>
                                         </div>
                                     </li>
@@ -60,15 +60,7 @@
                                         <div class="info-box">
                                             <div class="info-box-content">
                                                 <p class="info-box-title">Email Us</p>
-                                                <p class="info-box-subtitle">office@Constra.com</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="last">
-                                        <div class="info-box last">
-                                            <div class="info-box-content">
-                                                <p class="info-box-title">Global Certificate</p>
-                                                <p class="info-box-subtitle">ISO 9001:2017</p>
+                                                <p class="info-box-subtitle">{{ env('APP_EMAIL') }}</p>
                                             </div>
                                         </div>
                                     </li>
@@ -99,58 +91,33 @@
                                         </li>
                                         <li class="nav-item dropdown">
                                             <a href="#" class="nav-link dropdown-toggle"
-                                                data-toggle="dropdown">Company <i class="fa fa-angle-down"></i></a>
+                                                data-toggle="dropdown">About us <i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown-menu" role="menu">
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="team.html">Our People</a></li>
-                                                <li><a href="testimonials.html">Testimonials</a></li>
-                                                <li><a href="faq.html">Faq</a></li>
-                                                <li><a href="pricing.html">Pricing</a></li>
+                                                <li><a href="faq.html">Vision</a></li>
+                                                <li><a href="faq.html">Mission</a></li>
+                                                <li><a href="faq.html">Objects</a></li>
                                             </ul>
                                         </li>
                                         <li class="nav-item dropdown">
                                             <a href="#" class="nav-link dropdown-toggle"
-                                                data-toggle="dropdown">Projects <i class="fa fa-angle-down"></i></a>
+                                                data-toggle="dropdown">Our Services <i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown-menu" role="menu">
-                                                <li><a href="projects.html">Projects All</a></li>
-                                                <li><a href="projects-single.html">Projects Single</a></li>
+                                                <li><a href="projects.html">Consultancy</a></li>
+                                                <li><a href="projects-single.html">Construction</a></li>
+                                                <li><a href="projects-single.html">Real Estate</a></li>
                                             </ul>
                                         </li>
                                         <li class="nav-item dropdown">
                                             <a href="#" class="nav-link dropdown-toggle"
-                                                data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
+                                                data-toggle="dropdown">Our Projects <i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown-menu" role="menu">
-                                                <li><a href="services.html">Services All</a></li>
-                                                <li><a href="service-single.html">Services Single</a></li>
+                                                <li><a href="services.html">Dar es salaam </a></li>
+                                                <li><a href="service-single.html">Arusha</a></li>
+                                                <li><a href="service-single.html">Dodoma</a></li>
+                                                <li><a href="service-single.html">Mara</a></li>
                                             </ul>
                                         </li>
-                                        <li class="nav-item dropdown">
-                                            <a href="#" class="nav-link dropdown-toggle"
-                                                data-toggle="dropdown">Features <i class="fa fa-angle-down"></i></a>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="typography.html">Typography</a></li>
-                                                <li><a href="404.html">404</a></li>
-                                                <li class="dropdown-submenu">
-                                                    <a href="#!" class="dropdown-toggle"
-                                                        data-toggle="dropdown">Parent Menu</a>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a href="#!">Child Menu 1</a></li>
-                                                        <li><a href="#!">Child Menu 2</a></li>
-                                                        <li><a href="#!">Child Menu 3</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="nav-item dropdown">
-                                            <a href="#" class="nav-link dropdown-toggle"
-                                                data-toggle="dropdown">News <i class="fa fa-angle-down"></i></a>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="news-left-sidebar.html">News Left Sidebar</a></li>
-                                                <li><a href="news-right-sidebar.html">News Right Sidebar</a></li>
-                                                <li><a href="news-single.html">News Single</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="contact.html">Our Contact</a></li>
                                     </ul>
                                 </div>
                             </nav>
@@ -912,7 +879,7 @@
                         <div class="col-lg-4 col-md-6 footer-widget footer-about">
                             <h3 class="widget-title">About Us</h3>
                             <img loading="lazy" width="200px" class="footer-logo"
-                                src="{{ asset('assets/images/footer-logo.png') }}" alt="Constra">
+                                src="{{ asset('assets/images/logo.png') }}" alt="Constra">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci done
                                 idunt ut
                                 labore et dolore magna aliqua.</p>
