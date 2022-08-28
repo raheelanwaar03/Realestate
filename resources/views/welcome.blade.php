@@ -73,7 +73,7 @@
                                         </div>
                                     </li>
                                     <li class="header-get-a-quote">
-                                        <a class="btn btn-primary" href="contact.html">Get A Quote</a>
+                                        <a class="btn btn-primary" href="contact.html">Estatimate Your Plan</a>
                                     </li>
                                 </ul>
                             </div>
