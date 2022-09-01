@@ -1,92 +1,144 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
-    <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex">
-                <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
-                    </a>
-                </div>
+<!DOCTYPE html>
+<html lang="en">
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
+<head>
+
+    <meta charset="utf-8">
+    <title>{{ env('APP_NAME') }}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Construction Html5 Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name=author content="Themefisher">
+    <meta name=generator content="Themefisher Constra HTML Template v1.0">
+    <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon.png') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/bootstrap/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/animate-css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/slick/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/slick/slick-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/colorbox/colorbox.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+
+</head>
+
+<body>
+    <div class="body-inner">
+        <div id="top-bar" class="top-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8">
+                        <ul class="top-info text-center text-md-left">
+                            <li><i class="fas fa-map-marker-alt"></i>
+                                <p class="info-text">{{ env('APP_ADDRESS') }}</p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-
-            <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
-                <x-dropdown align="right" width="48">
-                    <x-slot name="trigger">
-                        <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                            <div>{{ Auth::user()->name }}</div>
-
-                            <div class="ml-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
+        </div>
+        <header id="header" class="header-one">
+            <div class="bg-white">
+                <div class="container">
+                    <div class="logo-area">
+                        <div class="row align-items-center">
+                            <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
+                                <a class="d-block" href="{{ route('landingPage') }}">
+                                    <img loading="lazy" src="{{ asset('assets/images/logo.png') }}" height="200px"
+                                        width="200px" alt="{{ env('APP_NAME') }}">
+                                </a>
                             </div>
-                        </button>
-                    </x-slot>
-
-                    <x-slot name="content">
-                        <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-                        </form>
-                    </x-slot>
-                </x-dropdown>
+                            <div class="col-lg-9 header-right">
+                                <ul class="top-info-box">
+                                    <li>
+                                        <div class="info-box">
+                                            <div class="info-box-content">
+                                                <p class="info-box-title">Call Us</p>
+                                                <p class="info-box-subtitle">{{ env('APP_PHONE') }}</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="info-box">
+                                            <div class="info-box-content">
+                                                <p class="info-box-title">Email Us</p>
+                                                <p class="info-box-subtitle">{{ env('APP_EMAIL') }}</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="header-get-a-quote">
+                                        <a class="btn btn-primary" href="{{ route('user.Estimation') }}">Estatimate Your Plan</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <!-- Hamburger -->
-            <div class="-mr-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
+            <div class="site-navigation">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <nav class="navbar navbar-expand-lg navbar-dark p-0">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div id="navbar-collapse" class="collapse navbar-collapse">
+                                    <ul class="nav navbar-nav mr-auto">
+                                        <li class="nav-item dropdown active">
+                                            <a href="#" class="nav-link dropdown-toggle"
+                                                data-toggle="dropdown">Home</a>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a href="#" class="nav-link dropdown-toggle"
+                                                data-toggle="dropdown">About us
+                                                <i class="fa fa-angle-down"></i></a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="faq.html">Vision</a></li>
+                                                <li><a href="faq.html">Mission</a></li>
+                                                <li><a href="faq.html">Objects</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a href="#" class="nav-link dropdown-toggle"
+                                                data-toggle="dropdown">Our
+                                                Services <i class="fa fa-angle-down"></i></a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="projects.html">Consultancy</a></li>
+                                                <li><a href="projects-single.html">Construction</a></li>
+                                                <li><a href="projects-single.html">Real Estate</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a href="#" class="nav-link dropdown-toggle"
+                                                data-toggle="dropdown">Our
+                                                Projects <i class="fa fa-angle-down"></i></a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="services.html">Dar es salaam </a></li>
+                                                <li><a href="service-single.html">Arusha</a></li>
+                                                <li><a href="service-single.html">Dodoma</a></li>
+                                                <li><a href="service-single.html">Mara</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item"><a class="nav-link"
+                                                href="{{ route('user.contactUs') }}">Our Contact</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="nav-search">
+                        <span id="search"><i class="fa fa-search"></i></span>
+                    </div>
+                    <div class="search-block" style="display: none;">
+                        <label for="search-field" class="w-100 mb-0">
+                            <input type="text" class="form-control" id="search-field"
+                                placeholder="Type what you want and enter">
+                        </label>
+                        <span class="search-close">&times;</span>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-        </div>
-
-        <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="px-4">
-                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-            </div>
-
-            <div class="mt-3 space-y-1">
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-
-                    <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </x-responsive-nav-link>
-                </form>
-            </div>
-        </div>
-    </div>
-</nav>
+        </header>

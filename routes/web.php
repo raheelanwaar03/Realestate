@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\landingPageController;
+use App\Http\Controllers\OtherPagesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/',[landingPageController::class, 'landingPage'])->name('landingPage');
+
+// Other pages route
+
+Route::get('/contact.us',[OtherPagesController::class, 'contactUs'])->name('user.contactUs');
+Route::get('/estimation',[OtherPagesController::class, 'estimation'])->name('user.Estimation');
 
 require __DIR__.'/auth.php';
