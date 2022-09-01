@@ -260,7 +260,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="ts-service-box d-flex">
-                        <div class="ts-service-box-img">
+                        <div class="ts-service-box-img text-danger">
                             <img loading="lazy" src="{{ asset('assets/images/icon-image/service-icon1.png') }}"
                                 alt="service-icon">
                         </div>
@@ -270,7 +270,7 @@
                         </div>
                     </div>
                     <div class="ts-service-box d-flex">
-                        <div class="ts-service-box-img">
+                        <div class="ts-service-box-img text-danger">
                             <img loading="lazy" src="{{ asset('assets/images/icon-image/service-icon2.png') }}"
                                 alt="service-icon">
                         </div>
@@ -602,7 +602,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="subscribe-call-to-acton">
-                        <h3>Can We Help?</h3>
+                        <h3 class="text-light">Can We Help?</h3>
                         <h4>(+9) 847-291-4353</h4>
                     </div>
                 </div>
